@@ -1,0 +1,152 @@
+/* --- Theme Variables --- */
+:root {
+  --hero-overlay-bg: rgba(0, 0, 0, 0.5);
+}
+
+[data-bs-theme="dark"] {
+  --hero-overlay-bg: rgba(0, 0, 0, 0.7);
+}
+
+/* --- Base Styles --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    padding-top: 56px;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    background-image: url('https://cdna.artstation.com/p/assets/images/images/032/769/008/medium/scott-cameron-kitbash3d-contest-shc-20201208a.jpg?1607422361');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--hero-overlay-bg);
+    /* overlay for text readability */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 1rem;
+}
+
+@media (max-width: 576px) {
+    .hero {
+        background-attachment: scroll;
+        /* avoids mobile performance issues */
+    }
+}
+
+/* --- Navbar --- */
+.navbar {
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbar-scrolled {
+  background-color: var(--bs-tertiary-bg);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
+}
+
+
+/* Theme switcher icon alignment */
+.dropdown-item .bi {
+  width: 1.25em;
+}
+
+/* --- Social Icons --- */
+.social-icon {
+  font-size: 1.75rem;
+  color: var(--bs-secondary-color);
+  transition: color 0.2s ease-in-out;
+}
+
+.social-icon:hover,
+.social-icon:focus {
+  color: var(--bs-primary);
+}
+
+/* --- Publications Section --- */
+.publications .card-img-top {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+/* --- Footer --- */
+.footer {
+  padding: 1.5rem 0;
+  background-color: var(--bs-tertiary-bg);
+  color: var(--bs-secondary-color);
+  font-size: .9rem;
+}
+
+.footer-link {
+  color: var(--bs-secondary-color);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-link:hover, .footer-link:focus {
+  color: var(--bs-primary);
+}
+
+/* --- Spam Protection --- */
+.honeypot {
+  display: none !important;
+}
+
+/* --- Scroll Animations --- */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Skills Section --- */
+.skill-item {
+  text-align: center;
+}
+
+.skill-item i {
+  font-size: 3rem;
+  color: var(--bs-body-color);
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.skill-item:hover i {
+  transform: scale(1.1);
+  color: var(--bs-primary);
+}
+
+.skill-item p {
+  margin-top: .5rem;
+}
+
+/* --- Project Cards --- */
+.project-image-link {
+  cursor: zoom-in;
+}
+
+.project-image-link .card-img-top {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.project-image-link:hover .card-img-top {
+  opacity: 0.8;
+}

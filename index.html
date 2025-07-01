@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scott H. Cameron Portfolio • Game Developer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    // Prevents "flash of incorrect theme" (FOIT) by applying the theme before rendering
+    (() => {
+      const getStoredTheme = () => localStorage.getItem('theme');
+      const getPreferredTheme = () => {
+        const storedTheme = getStoredTheme();
+        if (storedTheme) return storedTheme;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+      document.documentElement.setAttribute('data-bs-theme', getPreferredTheme());
+    })();
+  </script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="https://media.licdn.com/dms/image/v2/D5603AQFJnBfmfdmMFw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725905466828?e=1756944000&v=beta&t=6lG0VVaavXOLLCCwdS-om3D7vgfzN-8Dc2gEyvg9a4Y" alt="Scott H. Cameron" width="30" height="30" class="rounded-circle me-2">
+        Scott H. Cameron
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item dropdown">
+            <button class="btn btn-link nav-link dropdown-toggle" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (auto)">
+              <i class="bi bi-circle-half"></i>
+              <span class="d-lg-none ms-2">Toggle theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme">
+              <li><button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false"><i class="bi bi-sun-fill me-2"></i>Light</button></li>
+              <li><button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false"><i class="bi bi-moon-stars-fill me-2"></i>Dark</button></li>
+              <li><button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true"><i class="bi bi-circle-half me-2"></i>Auto</button></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+    <section id="hero" class="hero d-flex align-items-center justify-content-center text-center text-white">
+        <div class="hero-content">
+            <h1 class="display-4">Greetings! I'm Scott</h1>
+            <p class="lead">As a developer, I specialize in creating games using Unity.<br /> I enjoy designing fun and engaging experiences for players!</p>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+              <a href="#projects" class="btn btn-primary btn-lg px-4">See My Work</a>
+              <a href="resume.pdf" class="btn btn-outline-light btn-lg px-4" target="_blank" rel="noopener noreferrer">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-5 bg-body-secondary fade-in-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="mb-3">My Toolkit</h2>
+        <p class="lead">A selection of technologies I use to bring ideas to life.</p>
+      </div>
+      <div class="row justify-content-center text-center gy-4">
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="skill-item"><i class="devicon-unity-plain"></i><p>Unity</p></div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="skill-item"><i class="devicon-csharp-plain"></i><p>C#</p></div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="skill-item"><i class="devicon-git-plain"></i><p>Git</p></div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="skill-item"><i class="devicon-amazonwebservices-plain-wordmark"></i><p>AWS</p></div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="skill-item"><i class="devicon-blender-original"></i><p>Blender</p></div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+            <div class="skill-item"><i class="devicon-jira-plain"></i><p>Jira</p></div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="skill-item"><i class="devicon-illustrator-plain"></i><p>Illustrator</p></div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="skill-item"><i class="devicon-photoshop-plain"></i><p>Photoshop</p></div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="skill-item"><i class="devicon-json-plain"></i><p>JSON</p></div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="skill-item"><i class="devicon-photonengine-plain"></i><p>Photon</p></div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="skill-item"><i class="devicon-visualstudio-plain"></i><p>Visual Studio</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects py-5 fade-in-section">
+    <div class="container">
+      <h2 class="mb-4">Projects</h2>
+      <div class="row gy-4">
+        <div class="col-md-6">
+          <div class="card h-100">
+            <a href="img/placeholder-project-1.jpg" class="project-image-link">
+              <img src="img/placeholder-project-1.jpg" class="card-img-top" alt="Project 1 screenshot">
+            </a>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Project One</h5>
+              <div class="mb-3">
+                <span class="badge text-bg-primary">Unity</span>
+                <span class="badge text-bg-primary">C#</span>
+                <span class="badge text-bg-secondary">3D</span>
+              </div>
+              <p class="card-text">Short description of the project, highlighting key technologies or my role.</p>
+              <div class="mt-auto pt-3">
+                <a href="https://github.com/..." class="btn btn-outline-primary" target="_blank">View on GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <a href="img/placeholder-project-2.jpg" class="project-image-link">
+              <img src="img/placeholder-project-2.jpg" class="card-img-top" alt="Project 2 screenshot">
+            </a>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Project Two</h5>
+              <div class="mb-3">
+                <span class="badge text-bg-primary">Unity</span>
+                <span class="badge text-bg-primary">C#</span>
+                <span class="badge text-bg-secondary">VR</span>
+              </div>
+              <p class="card-text">Another short description of this other project, highlighting key technologies or my role.</p>
+              <div class="mt-auto pt-3">
+                <a href="https://github.com/..." class="btn btn-outline-primary" target="_blank">View on GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Add more projects as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications" class="publications py-5 bg-body-secondary fade-in-section">
+    <div class="container">
+      <h2 class="mb-4">Publications</h2>
+      <div class="row gy-4">
+        <!-- Publication 1 -->
+        <div class="col-lg-6 col-md-12">
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="img/U22BE_cover_image.jpg" class="img-fluid rounded-start" alt="Unity 2022 by Example">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body d-flex flex-column h-100">
+                  <h5 class="card-title">Unity 2022 by Example</h5>
+                  <p class="card-text small text-body-secondary">Author</p>
+                  <p class="card-text">A comprehensive guide to 2D, 3D, and MR game development with Unity 2022, covering essential concepts and practical examples for creating and publishing engaging games.</p>
+                  <div class="mt-auto pt-3">
+                    <a href="https://packt.link/ykY0e" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener noreferrer">Amazon</a>
+                    <a href="https://www.packtpub.com/en-us/product/unity-2022-by-example-9781803234595" class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener noreferrer">Publisher</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Add more publications as col-lg-3 col-md-6 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <!-- <section id="blog" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4">Latest Posts</h2>
+      <div id="posts"></div>
+    </div>
+  </section> -->
+
+  <!-- Contact -->
+  <section id="contact" class="py-5 fade-in-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="mb-3">Get In Touch</h2>
+        <p class="lead">Have a question or want to work together? Drop me a line!</p>
+        <div class="mt-4">
+          <a href="https://www.linkedin.com/in/shcameron" target="_blank" rel="noopener noreferrer" class="social-icon mx-3" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/badscotsman" target="_blank" rel="noopener noreferrer" class="social-icon mx-3" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="https://linktr.ee/shcameron" target="_blank" rel="noopener noreferrer" class="social-icon mx-3" aria-label="Linktree"><i class="bi bi-link-45deg"></i></a>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <form id="contact-form" class="needs-validation" novalidate>
+            <input type="hidden" name="access_key" value="e46b96b9-cb66-4dc6-b672-ab78b97139d2">
+            <input type="hidden" name="subject" value="New Contact Form Submission from Portfolio">
+            <input type="hidden" name="from_name" value="Portfolio Site">
+            <!-- Honeypot for spam protection -->
+            <input type="checkbox" name="botcheck" class="honeypot" aria-hidden="true">
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="contact-name" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="contact-name" name="name" required>
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="contact-email" class="form-label">Your Email</label>
+                <input type="email" class="form-control" id="contact-email" name="email" required>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+              <div class="col-12">
+                <label for="contact-message" class="form-label">Message</label>
+                <textarea class="form-control" id="contact-message" name="message" rows="5" required></textarea><div class="invalid-feedback">Please write a message.</div></div>
+              <div class="col-12"><button type="submit" class="btn btn-primary w-100">Send Message</button>
+              </div>
+            </div>
+          </form>
+          <div id="contact-msg" class="mt-3 text-center"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container d-flex justify-content-between align-items-center flex-column flex-md-row">
+      <p class="mb-2 mb-md-0">Crafted by &copy;2025 Scott H. Cameron</p>
+      <a href="#hero" class="footer-link">Back to top <i class="bi bi-arrow-up-short"></i></a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+
+  <!-- Vanilla JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
