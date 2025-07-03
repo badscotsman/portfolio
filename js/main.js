@@ -146,29 +146,106 @@
     document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
 
     // --- Lightbox for project images ---
-    document.querySelectorAll('.project-image-link').forEach(link => {
-      link.addEventListener('click', (e) => {
+    document.querySelectorAll('.project-image-link, .project-video-link').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
         e.preventDefault();
-        const imageSrc = link.getAttribute('href');
-        const imageAlt = link.querySelector('img').getAttribute('alt');
-        basicLightbox.create(`
-          <img src="${imageSrc}" alt="${imageAlt}">
-        `).show();
+
+        const imageLink = trigger.closest('.project-image-link');
+        const videoLink = trigger.closest('.project-video-link');
+
+        if (imageLink) {
+          const imageSrc = imageLink.getAttribute('href');
+          const imageAlt = imageLink.querySelector('img').getAttribute('alt');
+          basicLightbox.create(`<img src="${imageSrc}" alt="${imageAlt}">`).show();
+        } else if (videoLink) {
+          const videoSrc = videoLink.dataset.videoSrc;
+          basicLightbox.create(`
+            <video controls autoplay style="max-width: 90vw; max-height: 90vh;">
+              <source src="${videoSrc}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          `).show();
+        }
       });
     });
 
-    // --- Navbar scroll effect ---
+    // --- Scroll-based effects (Navbar & Back to Top) ---
     const navbar = document.querySelector('.navbar');
-    if (navbar) {
-      const handleScroll = () => {
-        if (window.scrollY > 50) {
-          navbar.classList.add('navbar-scrolled');
-        } else {
-          navbar.classList.remove('navbar-scrolled');
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    if (navbar || backToTopButton) {
+      const handleScrollEffects = () => {
+        if (navbar) {
+          window.scrollY > 50 ? navbar.classList.add('navbar-scrolled') : navbar.classList.remove('navbar-scrolled');
+        }
+        if (backToTopButton) {
+          window.scrollY > 200 ? backToTopButton.classList.add('active') : backToTopButton.classList.remove('active');
         }
       };
-      window.addEventListener('scroll', handleScroll);
-      handleScroll(); // Run on page load
+      window.addEventListener('scroll', handleScrollEffects);
+      handleScrollEffects(); // Run on page load
+    }
+
+    // --- tsParticles Fireflies Effect ---
+    if (typeof tsParticles !== 'undefined') {
+      tsParticles.load({
+        id: "particles-hero",
+        options: {
+          fullScreen: {
+            enable: false // This is the crucial fix
+          },
+          particles: {
+            number: {
+              value: 100,
+              density: {
+                enable: true,
+              }
+            },
+            color: {
+              value: "#ffd700"
+            },
+            shape: {
+              type: "circle"
+            },
+            opacity: {
+              value: { min: 0.1, max: 0.5 },
+              animation: {
+                enable: true,
+                speed: 1.5,
+                sync: false
+              }
+            },
+            size: {
+              value: { min: 1, max: 3 }
+            },
+            move: {
+              enable: true,
+              speed: 0.6,
+              direction: "none",
+              random: true,
+              straight: false,
+              outModes: "out"
+            }
+          },
+          interactivity: {
+            events: {
+              onHover: {
+                enable: true,
+                mode: "repulse"
+              }
+            },
+            modes: {
+              repulse: {
+                distance: 50,
+                duration: 0.4
+              }
+            }
+          },
+          background: {
+            color: "transparent"
+          }
+        }
+      });
     }
   })
 })()

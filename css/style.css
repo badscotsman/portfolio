@@ -13,7 +13,14 @@ html {
 }
 
 body {
-    padding-top: 56px;
+  padding-top: 56px;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar-brand {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
 }
 
 .hero {
@@ -32,13 +39,21 @@ body {
     background: var(--hero-overlay-bg);
     /* overlay for text readability */
     transition: background-color 0.3s ease-in-out;
+    z-index: 1;
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     padding: 0 1rem;
 }
+
+#particles-hero {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
 
 @media (max-width: 576px) {
     .hero {
@@ -63,18 +78,6 @@ body {
   width: 1.25em;
 }
 
-/* --- Social Icons --- */
-.social-icon {
-  font-size: 1.75rem;
-  color: var(--bs-secondary-color);
-  transition: color 0.2s ease-in-out;
-}
-
-.social-icon:hover,
-.social-icon:focus {
-  color: var(--bs-primary);
-}
-
 /* --- Publications Section --- */
 .publications .card-img-top {
   aspect-ratio: 3 / 4;
@@ -83,10 +86,17 @@ body {
 
 /* --- Footer --- */
 .footer {
-  padding: 1.5rem 0;
+  padding: 2rem 0;
   background-color: var(--bs-tertiary-bg);
   color: var(--bs-secondary-color);
   font-size: .9rem;
+  text-align: center;
+}
+
+.footer-heading {
+  font-family: 'Barlow', sans-serif;
+  color: var(--bs-body-color);
+  font-weight: 700;
 }
 
 .footer-link {
@@ -137,16 +147,63 @@ body {
 }
 
 /* --- Project Cards --- */
-.project-image-link {
+.project-image-link,
+.project-video-link {
+  display: block;
   cursor: zoom-in;
+  overflow: hidden;
 }
 
-.project-image-link .card-img-top {
+.projects .card-img-top {
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  width: 100%;
 }
 
-.project-image-link:hover .card-img-top {
+.project-image-link:hover .card-img-top,
+.project-video-link:hover .card-img-top {
   opacity: 0.8;
+  transform: scale(1.1);
+}
+
+/* --- Art Gallery Carousel --- */
+#artCarousel {
+  border-radius: .5rem;
+  overflow: hidden;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
+}
+
+#artCarousel .carousel-item img {
+  max-height: 35vh;
+  object-fit: contain;
+  width: 100%;
+  background-color: var(--bs-tertiary-bg);
+}
+
+/* --- Back to Top Button --- */
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--bs-primary);
+  color: var(--bs-white);
+  transition: all 0.3s ease-in-out;
+  z-index: 1030;
+  opacity: 0;
+  visibility: hidden;
+  text-decoration: none;
+}
+
+.back-to-top i {
+  font-size: 1.75rem;
+  line-height: 0;
+}
+
+.back-to-top.active {
+  opacity: 1;
+  visibility: visible;
 }
