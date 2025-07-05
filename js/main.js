@@ -62,7 +62,9 @@
     }
   })
 
-  window.addEventListener('DOMContentLoaded', () => {
+  // Using DOMContentLoaded is appropriate because the 'defer' attribute on the <script> tag
+  // in index.html guarantees that the DOM is fully parsed before this script executes.
+  document.addEventListener('DOMContentLoaded', () => {
     showActiveTheme(getPreferredTheme())
 
     document.querySelectorAll('[data-bs-theme-value]')
@@ -78,6 +80,11 @@
     // --- Contact form ---
     const contactForm = document.getElementById('contact-form')
     const contactMsg = document.getElementById('contact-msg')
+
+    const displayContactMessage = (message, isSuccess) => {
+      contactMsg.textContent = message;
+      contactMsg.className = `mt-3 text-center ${isSuccess ? 'text-success' : 'text-danger'}`;
+    };
 
     if (contactForm) {
       contactForm.addEventListener('submit', async (e) => {
@@ -107,19 +114,16 @@
           const result = await response.json();
 
           if (result.success) {
-            contactMsg.textContent = result.message || 'Thank you for your message! I will get back to you soon.';
-            contactMsg.className = 'mt-3 text-center text-success';
+            displayContactMessage(result.message || 'Thank you for your message! I will get back to you soon.', true);
             form.reset();
             form.classList.remove('was-validated');
           } else {
             console.error('Form submission error:', result);
-            contactMsg.textContent = result.message || 'An error occurred. Please try again.';
-            contactMsg.className = 'mt-3 text-center text-danger';
+            displayContactMessage(result.message || 'An error occurred. Please try again.', false);
           }
         } catch (error) {
           console.error('Fetch error:', error);
-          contactMsg.textContent = 'A network error occurred. Please check your connection and try again.';
-          contactMsg.className = 'mt-3 text-center text-danger';
+          displayContactMessage('A network error occurred. Please check your connection and try again.', false);
         } finally {
           submitButton.disabled = false;
           submitButton.innerHTML = originalButtonText;
@@ -129,45 +133,113 @@
 
     // --- Scroll-triggered fade-in animation ---
     const observerOptions = {
-      root: null, // Use the viewport as the root
+      root: null,
       rootMargin: '0px',
-      threshold: 0.1 // Trigger when 10% of the element is visible
+      threshold: 0.1
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target); // Animate only once
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
     document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
 
-    // --- Lightbox for project images ---
-    document.querySelectorAll('.project-image-link, .project-video-link').forEach(trigger => {
-      trigger.addEventListener('click', (e) => {
-        e.preventDefault();
+    // --- Lightbox (Event Delegation) ---
+    // This single listener handles clicks on any current or future project/gallery links.
+    document.body.addEventListener('click', (e) => {
+      const trigger = e.target.closest('.project-image-link, .project-video-link');
+      if (!trigger) return;
 
-        const imageLink = trigger.closest('.project-image-link');
-        const videoLink = trigger.closest('.project-video-link');
+      e.preventDefault();
 
-        if (imageLink) {
-          const imageSrc = imageLink.getAttribute('href');
-          const imageAlt = imageLink.querySelector('img').getAttribute('alt');
-          basicLightbox.create(`<img src="${imageSrc}" alt="${imageAlt}">`).show();
-        } else if (videoLink) {
-          const videoSrc = videoLink.dataset.videoSrc;
-          basicLightbox.create(`
-            <video controls autoplay style="max-width: 90vw; max-height: 90vh;">
-              <source src="${videoSrc}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          `).show();
-        }
-      });
+      let contentHtml = '';
+      if (trigger.matches('.project-image-link')) {
+        const imageSrc = trigger.getAttribute('href');
+        const imageAlt = trigger.querySelector('img')?.getAttribute('alt') || 'Project image';
+        contentHtml = `<img src="${imageSrc}" alt="${imageAlt}">`;
+      } else if (trigger.matches('.project-video-link')) {
+        const videoSrc = trigger.dataset.videoSrc;
+        contentHtml = `
+          <video controls autoplay style="max-width: 90vw; max-height: 90vh;">
+            <source src="${videoSrc}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        `;
+      }
+
+      if (contentHtml) {
+        basicLightbox.create(contentHtml).show();
+      }
     });
+
+    // --- Dynamic Projects ---
+    const loadProjects = async () => {
+      const container = document.getElementById('projects-container');
+      if (!container) return;
+
+      try {
+        const response = await fetch('data/projects.json');
+        if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
+        const projects = await response.json();
+
+        if (projects.length === 0) {
+          container.innerHTML = '<p class="text-center col-12">More projects coming soon!</p>';
+          return;
+        }
+
+        const projectsHtml = projects.map(project => {
+          // Generate HTML for both primary and secondary tags, applying the correct classes
+          const primaryTagsHtml = (project.primaryTags || []).map(tag => `<span class="badge text-bg-primary me-1">${tag}</span>`).join('');
+          const secondaryTagsHtml = (project.secondaryTags || []).map(tag => `<span class="badge text-bg-secondary me-1">${tag}</span>`).join('');
+          const tagsHtml = `${primaryTagsHtml} ${secondaryTagsHtml}`.trim();
+
+          // Conditionally create the GitHub button HTML only if a URL is provided
+          const githubButtonHtml = project.githubUrl ?
+            `<div class="mt-auto pt-3">
+              <a href="${project.githubUrl}" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">View on GitHub <i class="bi bi-box-arrow-up-right"></i></a>
+            </div>`
+            : '';
+
+          const mediaHtml = project.video ?
+            `
+            <div class="project-video-link" data-video-src="${project.video}">
+              <video src="${project.video}" class="card-img-top" autoplay loop muted playsinline alt="${project.title} gameplay video"></video>
+            </div>
+            ` :
+            `
+            <a href="${project.image}" class="project-image-link">
+              <img src="${project.image}" class="card-img-top" alt="${project.title} screenshot">
+            </a>
+            `;
+
+          return `
+          <div class="col-md-6">
+            <div class="card h-100">
+              ${mediaHtml}
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">${project.title}</h5>
+                <div class="mb-3">${tagsHtml}</div>
+                <p class="card-text">${project.description}</p>
+                ${githubButtonHtml}
+              </div>
+            </div>
+          </div>
+          `;
+        }).join('');
+
+        container.innerHTML = projectsHtml;
+      } catch (error) {
+        console.error('Failed to load projects:', error);
+        container.innerHTML = '<p class="text-center text-danger col-12">Could not load projects at this time.</p>';
+      }
+    };
+
+    loadProjects();
 
     // --- Scroll-based effects (Navbar & Back to Top) ---
     const navbar = document.querySelector('.navbar');
@@ -183,69 +255,27 @@
         }
       };
       window.addEventListener('scroll', handleScrollEffects);
-      handleScrollEffects(); // Run on page load
+      handleScrollEffects();
     }
 
-    // --- tsParticles Fireflies Effect ---
-    if (typeof tsParticles !== 'undefined') {
-      tsParticles.load({
-        id: "particles-hero",
-        options: {
-          fullScreen: {
-            enable: false // This is the crucial fix
-          },
-          particles: {
-            number: {
-              value: 100,
-              density: {
-                enable: true,
-              }
-            },
-            color: {
-              value: "#ffd700"
-            },
-            shape: {
-              type: "circle"
-            },
-            opacity: {
-              value: { min: 0.1, max: 0.5 },
-              animation: {
-                enable: true,
-                speed: 1.5,
-                sync: false
-              }
-            },
-            size: {
-              value: { min: 1, max: 3 }
-            },
-            move: {
-              enable: true,
-              speed: 0.6,
-              direction: "none",
-              random: true,
-              straight: false,
-              outModes: "out"
-            }
-          },
-          interactivity: {
-            events: {
-              onHover: {
-                enable: true,
-                mode: "repulse"
-              }
-            },
-            modes: {
-              repulse: {
-                distance: 50,
-                duration: 0.4
-              }
-            }
-          },
-          background: {
-            color: "transparent"
+    // --- tsParticles Hero Section ---
+    // Check if the required functions from the preset bundle are available
+    if (typeof tsParticles !== 'undefined' && typeof loadFireflyPreset !== 'undefined') {
+      (async () => {
+        // Load the firefly preset into the engine
+        await loadFireflyPreset(tsParticles);
+
+        // Load the particles into the #particles-hero container
+        // We merge the "firefly" preset with our own options to constrain it
+        await tsParticles.load({
+          id: "particles-hero",
+          options: {
+            preset: "firefly",
+            fullScreen: { enable: false },
+            background: { color: { value: "transparent" } }
           }
-        }
-      });
+        });
+      })();
     }
   })
 })()

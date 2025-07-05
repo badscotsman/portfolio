@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Project One",
+    "image": "img/placeholder-project-1.jpg",
+    "video": null,
+    "primaryTags": ["Unity", "C#"],
+    "secondaryTags": ["3D"],
+    "description": "Short description of the project, highlighting key technologies or my role.",
+    "githubUrl": "https://github.com/..."
+  },
+  {
+    "title": "Project Two",
+    "image": null,
+    "video": "videos/placeholder-project-2.mp4",
+    "primaryTags": ["Unity", "C#"],
+    "secondaryTags": ["VR"],
+    "description": "Another short description of this other project, highlighting key technologies or my role.",
+    "githubUrl": ""
+  }
+]
