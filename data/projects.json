@@ -1,22 +1,62 @@
 [
   {
-    "title": "Bonfire - Dimension X",
+    "title": "Bonfire - No/Low-Code 3D Platform (Dimension X)",
     "image": "img/Bonfire-steam-page-1_crop.jpg",
     "video": null,
-    "primaryTags": ["Unity", "C#"],
-    "secondaryTags": ["3D", "UI/UX", "VR", "Steam", "Design"],
+    "primaryTags": ["Unity", "C#", "UI/UX"],
+    "secondaryTags": ["3D", "VR", "Steam", "Oculus", "AWS", "Multiplayer", "Cesium", "Design"],
     "description": "As a Senior Unity Developer and Team Lead, I'm contributing to the upcoming release of Bonfire with the Dimension X team. I also lead projects on Digital Twins and VR for education, using my breadth of experience to tackle real-world challenges.",
     "projectUrl": "https://store.steampowered.com/app/3113160/Bonfire/",
     "projectUrlText": "View on Steam"
   },
   {
-    "title": "Project Two",
+    "title": "CoreSpec3D - Layers System (Dimension X)",
     "image": null,
-    "video": "videos/placeholder-project-2.mp4",
-    "primaryTags": ["Unity", "C#"],
-    "secondaryTags": ["VR"],
-    "description": "Another short description of this other project, highlighting key technologies or my role.",
+    "video": "",
+    "primaryTags": ["Unity", "C#", "DOTS (C# Job System)", "UI Toolkit"],
+    "secondaryTags": ["UI/UX", "Mobile", "Design (Iconography)"],
+    "description": "",
     "projectUrl": "",
     "projectUrlText": ""
+  },
+  {
+    "title": "Viglo Live - Gamified Foreign Language App (Viglo)",
+    "image": null,
+    "video": "videos/Viglo_intro.mp4",
+    "primaryTags": ["Unity", "C#", "Realtime Video", "Multiplayer", "AWS", "LiveOps"],
+    "secondaryTags": ["PlayFab", "UI/UX", "Android", "iOS", "Design"],
+    "description": "As a Senior Developer and System Architect for Viglo Live, I helped create a gamified language-learning platform that integrates real-time multiplayer interactions with immersive learning. I led a cross-disciplinary team where my work involved rapid prototyping, networked game architecture, and managing cloud-based LiveOps. I also developed a cloud-driven DLC pipeline and facilitated continuous deployment.",
+    "projectUrl": "",
+    "projectUrlText": ""
+  },
+  {
+    "title": "CADEsport - Character Customization (CADEsport)",
+    "image": null,
+    "video": "",
+    "primaryTags": ["Unity", "C#", "3D Characters", "UMA", "UI/UX (Procedural)"],
+    "secondaryTags": ["Multiplayer", "Physics (Ragdoll)"],
+    "description": "As a Senior Developer and System Architect for Viglo Live, I helped create a gamified language-learning platform that integrates real-time multiplayer interactions with immersive learning. I led a cross-disciplinary team where my work involved rapid prototyping, networked game architecture, and managing cloud-based LiveOps. I also developed a cloud-driven DLC pipeline and facilitated continuous deployment.",
+    "projectUrl": "",
+    "projectUrlText": ""
+  },
+  {
+    "title": "Zenva Academy - Course QA (Zenva)",
+    "image": null,
+    "video": "videos/Zenva_intro.mp4",
+    "primaryTags": ["Unity", "C#"],
+    "secondaryTags": ["Unreal Engine", "C++", "JavaScript", "HTML5"],
+    "description": "Providing quality assurance and student course support for Unity, Unreal Engine, Phaser (HTML5), and C++ game development curriculum.",
+    "projectUrl": "https://academy.zenva.com/",
+    "projectUrlText": "Zenva Academy"
+  },
+  {
+    "title": "Metasphere - Openworld Sandbox (IOTAplus)",
+    "image": null,
+    "video": "",
+    "primaryTags": ["Unity", "C#", "Web3"],
+    "secondaryTags": ["UI/UX", "Build Pipeline", "Asset Mgmt", "Design", "Space Graphics Toolkit"],
+    "description": "As Senior Developer, System Architect, Team Lead, and Designer on Metasphere, I led the creation of a unique online world blending social interaction, gameplay, and user-generated content with NFT integration. Players could explore diverse environments, connect with friends, and showcase digital collectibles in personalized 3D galleries. My role combined deep technical architecture with creative vision to bring this ambitious concept to life and lay the foundation for future community-driven evolution.",
+    "projectUrl": "https://academy.zenva.com/",
+    "projectUrlText": "Zenva Academy"
   }
 ]
