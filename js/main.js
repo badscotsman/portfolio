@@ -198,10 +198,10 @@
           const secondaryTagsHtml = (project.secondaryTags || []).map(tag => `<span class="badge text-bg-secondary me-1">${tag}</span>`).join('');
           const tagsHtml = `${primaryTagsHtml} ${secondaryTagsHtml}`.trim();
 
-          // Conditionally create the GitHub button HTML only if a URL is provided
-          const githubButtonHtml = project.githubUrl ?
+          // Conditionally create the project link button HTML.
+          const projectLinkHtml = project.projectUrl ?
             `<div class="mt-auto pt-3">
-              <a href="${project.githubUrl}" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">View on GitHub <i class="bi bi-box-arrow-up-right"></i></a>
+              <a href="${project.projectUrl}" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">${project.projectUrlText || 'View Project'} <i class="bi bi-box-arrow-up-right"></i></a>
             </div>`
             : '';
 
@@ -225,7 +225,7 @@
                 <h5 class="card-title">${project.title}</h5>
                 <div class="mb-3">${tagsHtml}</div>
                 <p class="card-text">${project.description}</p>
-                ${githubButtonHtml}
+                ${projectLinkHtml}
               </div>
             </div>
           </div>

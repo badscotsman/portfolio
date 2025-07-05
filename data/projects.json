@@ -1,12 +1,13 @@
 [
   {
-    "title": "Project One",
-    "image": "img/placeholder-project-1.jpg",
+    "title": "Bonfire - Dimension X",
+    "image": "img/Bonfire-steam-page-1_crop.jpg",
     "video": null,
     "primaryTags": ["Unity", "C#"],
-    "secondaryTags": ["3D"],
-    "description": "Short description of the project, highlighting key technologies or my role.",
-    "githubUrl": "https://github.com/..."
+    "secondaryTags": ["3D", "UI/UX", "VR", "Steam", "Design"],
+    "description": "As a Senior Unity Developer and Team Lead, I'm contributing to the upcoming release of Bonfire with the Dimension X team. I also lead projects on Digital Twins and VR for education, using my breadth of experience to tackle real-world challenges.",
+    "projectUrl": "https://store.steampowered.com/app/3113160/Bonfire/",
+    "projectUrlText": "View on Steam"
   },
   {
     "title": "Project Two",
@@ -15,6 +16,7 @@
     "primaryTags": ["Unity", "C#"],
     "secondaryTags": ["VR"],
     "description": "Another short description of this other project, highlighting key technologies or my role.",
-    "githubUrl": ""
+    "projectUrl": "",
+    "projectUrlText": ""
   }
 ]
