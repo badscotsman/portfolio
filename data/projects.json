@@ -5,7 +5,7 @@
     "video": null,
     "primaryTags": ["Unity", "C#", "UI/UX"],
     "secondaryTags": ["3D", "VR", "Steam", "Oculus", "AWS", "Multiplayer", "Cesium", "Design"],
-    "description": "As a Senior Unity Developer and Team Lead, I'm contributing to the upcoming release of Bonfire with the Dimension X team. I also lead projects on Digital Twins and VR for education, using my breadth of experience to tackle real-world challenges.",
+    "description": "As a Senior Unity Engineer and Team Lead, I'm contributing to the upcoming release of Bonfire with the Dimension X team. I also lead projects on Digital Twins and VR for education, using my breadth of experience to tackle real-world challenges.",
     "projectUrl": "https://store.steampowered.com/app/3113160/Bonfire/",
     "projectUrlText": "View on Steam"
   },
@@ -55,7 +55,7 @@
     "video": null,
     "primaryTags": ["Unity", "C#", "VR", "Oculus", "Meta"],
     "secondaryTags": ["Multiplayer"],
-    "description": "",
+    "description": "As a Senior Unity Developer, I helped create an immersive educational experience that combines VR with interactive learning. I developed multiplayer XR features, including an interactive skeletal system and an AI-powered avatar that responds to user questions. I also created custom UI and implemented controller-free navigation, ensuring smooth performance for a global student audience.",
     "projectUrl": "https://www.meta.com/experiences/curio-xr/6297642716922627/",
     "projectUrlText": "View on Meta"
   },
