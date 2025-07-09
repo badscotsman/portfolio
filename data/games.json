@@ -1,0 +1,53 @@
+[
+  {
+    "title": "Outer World Collection Game",
+    "image": "https://img.itch.zone/aW1nLzE1Njc5MzMzLnBuZw==/315x250%23c/sEbwd0.png",
+    "description": "Collect all the water diamonds before the timer runs out. Watch out for those toxic puddles! Hold spacebar or LMB to move the ladybug in the direction of the mouse pointer.<br /><br />This game is the completed introductory 2D game from my book \"Unity 2022 by Example\"",
+    "jam": "",
+    "tags": ["Unity", "C#", "2D Art", "Puzzle", "WebGL"],
+    "itchioUrl": "https://badscotsman.itch.io/outer-world-2d-collection-game",
+    "embeddable": true,
+    "embedUrl": "https://html-classic.itch.zone/html/5589331/index.html",
+    "featured": true
+  },
+  {
+    "title": "The Mystery of the Clocks",
+    "image": "https://img.itch.zone/aW1hZ2UvNTA5Mzk3LzI2NTQ5NzguanBn/347x500/WKolit.jpg",
+    "description": "The first-person journey through a dark maze with a haunting curse enshrouding intriguing clocks. Make your way through this mystery by solving the clue word utilizing the clocks. Help is always available to those who just ask.",
+    "jam": "CGD Horror Jam 2019",
+    "tags": ["Unity", "C#", "3D Art", "Enemy AI", "Puzzle", "Clock Mechanics"],
+    "itchioUrl": "https://badscotsman.itch.io/the-mystery-of-the-clocks",
+    "embeddable": false,
+    "embedUrl": null
+  },
+  {
+    "title": "Miner Up",
+    "image": "https://img.itch.zone/aW1hZ2UvNzIxNjE4LzQwMjEzMDYucG5n/original/k0buhf.png",
+    "description": "Miner up! How deep can you go to bring as much gold on top? But be warned, as spiders are just around to take them away from you!<br /><br />You'll start going up when you get the first gold. So when that happens, try to collect as many as you can on the way up!",
+    "jam": "Brackey's Game Jam 2020.2 - \"Rewind\"",
+    "tags": ["Unity", "C#", "2D Art", "Prodecural Levels", "Action"],
+    "itchioUrl": "https://badscotsman.itch.io/miner-up",
+    "embeddable": false,
+    "embedUrl": null
+  },
+  {
+    "title": "Super Snowman Spider Showdown Supreme",
+    "image": "https://img.itch.zone/aW1hZ2UvMTM3OTQ1LzYzNjUwNy5naWY=/original/YRe4Cg.gif",
+    "description": "An army of 6-legged arachnids. One snow globe. One Snowman.<br /><br />Be a hero. Defend the Gingerbread village from thousands of spiders. An epic battle all taking place inside a snow globe. It's a small world- but one heroic challenge.",
+    "jam": "Ludem Dare 38 - \"A Small World\"",
+    "tags": ["Unity", "C#", "Spline Pathing", "3D Art", "Arcade"],
+    "itchioUrl": "https://theclinthennesy.itch.io/supersnowmanspider",
+    "embeddable": false,
+    "embedUrl": null
+  },
+  {
+    "title": "SpEw!",
+    "image": "https://img.itch.zone/aW1hZ2UvMzQwMzc0LzE3MDU0NDAucG5n/347x500/ZwRFCu.png",
+    "description": "This is what you get when you come off the weekend and decide last minute to join the jam with 10 hours left.  I cracked myself up... your mileage may vary.<br /><br />It's a physics-based puzzle platformer (I guess so). Get the flag! Simple! 😅",
+    "jam": "Ludem Dare 43 - \"Sacrifices must be made\"",
+    "tags": ["Unity", "C#", "Physics", "2D Art", "Puzzle"],
+    "itchioUrl": "https://badscotsman.itch.io/spew",
+    "embeddable": false,
+    "embedUrl": null
+  }
+]

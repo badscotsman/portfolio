@@ -152,28 +152,54 @@
     // --- Lightbox (Event Delegation) ---
     // This single listener handles clicks on any current or future project/gallery links.
     document.body.addEventListener('click', (e) => {
-      const trigger = e.target.closest('.project-image-link, .project-video-link');
+      const trigger = e.target.closest('.project-image-link, .project-video-link, .play-game-btn');
       if (!trigger) return;
 
       e.preventDefault();
 
-      let contentHtml = '';
-      if (trigger.matches('.project-image-link')) {
-        const imageSrc = trigger.getAttribute('href');
-        const imageAlt = trigger.querySelector('img')?.getAttribute('alt') || 'Project image';
-        contentHtml = `<img src="${imageSrc}" alt="${imageAlt}">`;
-      } else if (trigger.matches('.project-video-link')) {
-        const videoSrc = trigger.dataset.videoSrc;
-        contentHtml = `
-          <video controls autoplay style="max-width: 90vw; max-height: 90vh;">
-            <source src="${videoSrc}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        `;
-      }
+      if (trigger.matches('.project-image-link, .project-video-link')) {
+        let contentHtml = '';
+        if (trigger.matches('.project-image-link')) {
+          const imageSrc = trigger.getAttribute('href');
+          const imageAlt = trigger.querySelector('img')?.getAttribute('alt') || 'Project image';
+          contentHtml = `<img src="${imageSrc}" alt="${imageAlt}">`;
+        } else if (trigger.matches('.project-video-link')) {
+          const videoSrc = trigger.dataset.videoSrc;
+          contentHtml = `
+            <video controls autoplay style="max-width: 90vw; max-height: 90vh;">
+              <source src="${videoSrc}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          `;
+        }
+        if (contentHtml) {
+          basicLightbox.create(contentHtml).show();
+        }
+      } else if (trigger.matches('.play-game-btn')) {
+        const embedUrl = trigger.dataset.embedUrl;
+        if (!embedUrl) return;
 
-      if (contentHtml) {
-        basicLightbox.create(contentHtml).show();
+        const contentHtml = `<div class="game-embed-container"><iframe src="${embedUrl}" allowfullscreen></iframe></div>`;
+
+        const lightbox = basicLightbox.create(contentHtml, {
+          className: 'game-lightbox', // Custom class for styling
+          onShow: (instance) => {
+            const container = instance.element().querySelector('.game-embed-container');
+            const iframe = container.querySelector('iframe');
+
+            const fullscreenBtn = document.createElement('button');
+            fullscreenBtn.className = 'game-fullscreen-btn';
+            fullscreenBtn.title = 'Toggle Fullscreen';
+            fullscreenBtn.innerHTML = '<i class="bi bi-arrows-fullscreen"></i>';
+
+            fullscreenBtn.addEventListener('click', () => {
+              if (iframe.requestFullscreen) iframe.requestFullscreen();
+              else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen(); /* Safari */
+            });
+            container.appendChild(fullscreenBtn);
+          }
+        });
+        lightbox.show();
       }
     });
 
@@ -240,6 +266,62 @@
     };
 
     loadProjects();
+
+    // --- Dynamic Games ---
+    async function loadGames() {
+      const container = document.getElementById('games-container');
+      if (!container) {
+        console.error('Games container not found.');
+        return;
+      }
+
+      try {
+        const response = await fetch('data/games.json');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const games = await response.json();
+
+        let gamesHTML = '';
+        games.forEach(game => {
+          const tagsHTML = game.tags.map(tag => `<span class="badge rounded-pill text-bg-primary me-1">${tag}</span>`).join('');
+          
+          // Conditionally add the "Play Now" button if the game is embeddable
+          const playButtonHTML = game.embeddable
+            ? `<button class="btn btn-sm btn-primary play-game-btn" data-embed-url="${game.embedUrl}">Play Now <i class="bi bi-play-fill"></i></button>`
+            : '';
+          
+          // Check for the 'featured' flag and create the badge HTML
+          const featuredBadgeHTML = game.featured
+            ? `<div class="featured-badge"><i class="bi bi-star-fill"></i> Featured</div>`
+            : '';
+
+          gamesHTML += `
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100 shadow-sm">
+                ${featuredBadgeHTML}
+                <img src="${game.image}" class="card-img-top" alt="${game.title}">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">${game.title}</h5>
+                  <h6 class="card-subtitle mb-2 text-body-secondary">${game.jam}</h6>
+                  <p class="card-text">${game.description}</p>
+                  <div class="mt-auto pt-3">
+                    <div class="mb-3">${tagsHTML}</div>
+                    <a href="${game.itchioUrl}" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener noreferrer">View on Itch.io <i class="bi bi-box-arrow-up-right"></i></a>
+                    ${playButtonHTML}
+                  </div>
+                </div>
+              </div>
+            </div>`;
+        });
+        container.innerHTML = gamesHTML;
+      } catch (error) {
+        console.error('Could not load game jam data:', error);
+        container.innerHTML = '<p class="text-center">Could not load game projects at this time. Please try again later.</p>';
+      }
+    }
+
+    loadGames();
 
     // --- Scroll-based effects (Navbar & Back to Top) ---
     const navbar = document.querySelector('.navbar');
