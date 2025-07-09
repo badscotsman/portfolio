@@ -31,22 +31,22 @@
     "embedUrl": null
   },
   {
-    "title": "Super Snowman Spider Showdown Supreme",
-    "image": "https://img.itch.zone/aW1hZ2UvMTM3OTQ1LzYzNjUwNy5naWY=/original/YRe4Cg.gif",
-    "description": "An army of 6-legged arachnids. One snow globe. One Snowman.<br /><br />Be a hero. Defend the Gingerbread village from thousands of spiders. An epic battle all taking place inside a snow globe. It's a small world- but one heroic challenge.",
-    "jam": "Ludem Dare 38 - \"A Small World\"",
-    "tags": ["Unity", "C#", "Spline Pathing", "3D Art", "Arcade"],
-    "itchioUrl": "https://theclinthennesy.itch.io/supersnowmanspider",
-    "embeddable": false,
-    "embedUrl": null
-  },
-  {
     "title": "SpEw!",
     "image": "https://img.itch.zone/aW1hZ2UvMzQwMzc0LzE3MDU0NDAucG5n/347x500/ZwRFCu.png",
     "description": "This is what you get when you come off the weekend and decide last minute to join the jam with 10 hours left.  I cracked myself up... your mileage may vary.<br /><br />It's a physics-based puzzle platformer (I guess so). Get the flag! Simple! 😅",
     "jam": "Ludem Dare 43 - \"Sacrifices must be made\"",
     "tags": ["Unity", "C#", "Physics", "2D Art", "Puzzle"],
     "itchioUrl": "https://badscotsman.itch.io/spew",
+    "embeddable": false,
+    "embedUrl": null
+  },
+  {
+    "title": "Super Snowman Spider Showdown Supreme",
+    "image": "https://img.itch.zone/aW1hZ2UvMTM3OTQ1LzYzNjUwNy5naWY=/original/YRe4Cg.gif",
+    "description": "An army of 6-legged arachnids. One snow globe. One Snowman.<br /><br />Be a hero. Defend the Gingerbread village from thousands of spiders. An epic battle all taking place inside a snow globe. It's a small world- but one heroic challenge.",
+    "jam": "Ludem Dare 38 - \"A Small World\"",
+    "tags": ["Unity", "C#", "Spline Pathing", "3D Art", "Arcade"],
+    "itchioUrl": "https://theclinthennesy.itch.io/supersnowmanspider",
     "embeddable": false,
     "embedUrl": null
   }
