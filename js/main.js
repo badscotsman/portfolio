@@ -359,5 +359,19 @@
         });
       })();
     }
+
+    // --- Rive Animation ---
+    const riveCanvas = document.getElementById('rive-canvas');
+    if (riveCanvas && typeof rive !== 'undefined') {
+      const r = new rive.Rive({
+        src: 'img/Avatar.riv',
+        canvas: riveCanvas,
+        autoplay: true,
+        stateMachines: 'State Machine 1',
+        onLoad: () => {
+          r.resizeToCanvas();
+        },
+      });
+    }
   })
 })()

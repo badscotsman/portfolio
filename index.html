@@ -14,6 +14,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@tsparticles/preset-firefly@3.2.0/tsparticles.preset.firefly.bundle.min.js" defer></script>
+  <script src="https://unpkg.com/@rive-app/webgl"></script>
   <script src="js/main.js" defer></script>
   <link rel="stylesheet" href="css/style.css" />
   <script>
@@ -252,8 +253,8 @@
         <h2 class="mb-3">Get In Touch</h2>
         <p class="lead">Let's work together! Have a question or a project in mind?<br />Don't hesitate to drop me a line, I'd love to hear from you! I'll get back to you as soon as possible.</p>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
+      <div class="input-form row justify-content-center align-items-center">
+        <div class="col-lg-6">
           <form id="contact-form" class="needs-validation" novalidate>
             <input type="hidden" name="access_key" value="e46b96b9-cb66-4dc6-b672-ab78b97139d2">
             <input type="hidden" name="subject" value="New Contact Form Submission from Portfolio">
@@ -279,6 +280,9 @@
             </div>
           </form>
           <div id="contact-msg" class="mt-3 text-center" aria-live="polite"></div>
+        </div>
+        <div class="col-lg-6 text-center">
+          <canvas id="rive-canvas" width="300" height="400"></canvas>
         </div>
       </div>
     </div>

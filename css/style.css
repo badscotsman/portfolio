@@ -298,3 +298,11 @@ h1, h2, h3, h4, h5, h6,
   margin-right: 4px;
   vertical-align: -1px;
 }
+
+#contact .input-form {
+  background-color: var(--bs-bg-body);
+  border-radius: 15px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+  padding-top: 20px;
+  margin: 0 auto;
+}
