@@ -35,7 +35,7 @@
     "video": "videos/Viglo_intro.mp4",
     "primaryTags": ["Unity", "C#", "Realtime Video", "Multiplayer", "AWS", "LiveOps"],
     "secondaryTags": ["PlayFab", "UI/UX", "Android", "iOS", "Design"],
-    "description": "As a Senior Developer and System Architect for Viglo Live, I helped create a gamified language-learning platform that integrates real-time video and multiplayer interactions with immersive learning. I led a cross-disciplinary team where my work involved rapid prototyping, networked game architecture, and managing cloud-based LiveOps. I also developed a cloud-driven DLC pipeline and facilitated continuous build deployment.",
+    "description": "As a Senior Developer and System Architect for Viglo Live, I created a gamified language-learning platform that integrates real-time video and multiplayer interactions with immersive learning. I led a cross-disciplinary team where my work involved rapid prototyping, networked game architecture, and managing cloud-based LiveOps. I also developed a cloud-driven DLC pipeline and facilitated continuous build deployment.",
     "projectUrl": "",
     "projectUrlText": ""
   },

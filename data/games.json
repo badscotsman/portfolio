@@ -49,5 +49,15 @@
     "itchioUrl": "https://theclinthennesy.itch.io/supersnowmanspider",
     "embeddable": false,
     "embedUrl": null
+  },
+  {
+    "title": "VR Playroom",
+    "image": "img/VRPlayroom-02.png",
+    "description": "Created for the \"Create with VR for Educators\" curriculum, this was a fun experiment to implement as many VR interactions as possible in this small'ish playroom experience. Taking picutes with the polaroid camera, shooting the water bottles with the laser (dart) gun, and hitting the tennis ball with the racket are fun interactions. It was a great way to get explore VR immersion and presense and was a lot of fun to make. It uses the Oculus Controllers, so maybe I'll revisit this project one day with hands!<br /><br /><a href=\"https://learn.unity.com/submission/61573b8eedbc2a709cf072a0/\" target=\"_blank\" rel=\"noopener noreferrer\">View on Unity Learn</a><br /><a href=\"https://youtu.be/6PVrlqFGkCE/\" target=\"_blank\" rel=\"noopener noreferrer\">Watch on YouTube</a>",
+    "jam": "Unity Learn",
+    "tags": ["Unity", "C#", "VR", "Oculus"],
+    "itchioUrl": null,
+    "embeddable": false,
+    "embedUrl": null
   }
 ]

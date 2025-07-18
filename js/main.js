@@ -290,7 +290,10 @@
           const playButtonHTML = game.embeddable
             ? `<button class="btn btn-sm btn-primary play-game-btn" data-embed-url="${game.embedUrl}">Play Now <i class="bi bi-play-fill"></i></button>`
             : '';
-          
+
+          // Conditionally show the Itch.io button if itchioURL is not blank or null
+          const itchButtonHTML = game.itchioUrl ? `<a href="${game.itchioUrl}" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener noreferrer">View on Itch.io <i class="bi bi-box-arrow-up-right"></i></a>` : '';
+
           // Check for the 'featured' flag and create the badge HTML
           const featuredBadgeHTML = game.featured
             ? `<div class="featured-badge"><i class="bi bi-star-fill"></i> Featured</div>`
@@ -307,7 +310,7 @@
                   <p class="card-text">${game.description}</p>
                   <div class="mt-auto pt-3">
                     <div class="mb-3">${tagsHTML}</div>
-                    <a href="${game.itchioUrl}" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener noreferrer">View on Itch.io <i class="bi bi-box-arrow-up-right"></i></a>
+                    ${itchButtonHTML}
                     ${playButtonHTML}
                   </div>
                 </div>
