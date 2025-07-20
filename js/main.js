@@ -343,6 +343,10 @@
       handleScrollEffects();
     }
 
+    // --- Tooltip Initializer ---
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
     // --- tsParticles Hero Section ---
     // Check if the required functions from the preset bundle are available
     if (typeof tsParticles !== 'undefined' && typeof loadFireflyPreset !== 'undefined') {
