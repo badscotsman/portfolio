@@ -23,7 +23,7 @@
     "title": "CADEsport - Character Customization (CADEsport)",
     "image": "img/CADEsport_UMA-avatar-UI.jpg",
     "video": null,
-    "primaryTags": ["Unity", "C#", "3D Characters", "UMA", "UI/UX (Procedural)"],
+    "primaryTags": ["Unity", "C#", "3D Characters", "UMA", "UI/UX (Procedural)", "Multiplayer"],
     "secondaryTags": ["Multiplayer", "Physics (Ragdoll)"],
     "description": "As a Senior Unity Developer, I led the creation of a customizable player avatar system that allowed users to personalize their in-game representation. I designed and implemented this feature to enhance player identity and immersion, focusing on clean, scalable code and seamless integration with the game's systems.",
     "projectUrl": "",
@@ -44,7 +44,7 @@
     "image": null,
     "video": "videos/Zenva_intro.mp4",
     "primaryTags": ["Unity", "C#"],
-    "secondaryTags": ["Unreal Engine", "C++", "JavaScript", "HTML5"],
+    "secondaryTags": ["Unreal Engine", "C++", "Multiplayer", "JavaScript", "HTML5"],
     "description": "Providing quality assurance and student course support for Unity, Unreal Engine, Phaser (HTML5), and C++ game development curriculum.",
     "projectUrl": "https://academy.zenva.com/",
     "projectUrlText": "Zenva Academy"
@@ -53,7 +53,7 @@
     "title": "CurioXR - VR Education (Dimension X)",
     "image": "img/CurioXR_hands.jpg",
     "video": null,
-    "primaryTags": ["Unity", "C#", "VR", "Oculus", "Meta"],
+    "primaryTags": ["Unity", "C#", "VR", "Oculus", "Meta", "Multiplayer"],
     "secondaryTags": ["Multiplayer"],
     "description": "As a Senior Unity Developer, I helped create an immersive educational experience that combines VR with interactive learning. I developed multiplayer XR features, including an interactive skeletal system and an AI-powered avatar that responds to user questions. I also created custom UI and implemented controller-free navigation, ensuring smooth performance for a global student audience.",
     "projectUrl": "https://www.meta.com/experiences/curio-xr/6297642716922627/",
@@ -64,8 +64,18 @@
     "image": null,
     "video": "videos/Metasphere_Cinematic-Teaser-01.mp4",
     "primaryTags": ["Unity", "C#", "Web3"],
-    "secondaryTags": ["UI/UX", "Build Pipeline", "Asset Mgmt", "Design", "Space Graphics Toolkit"],
+    "secondaryTags": ["UI/UX", "Build Pipeline", "Asset Mgmt", "Design", "Space Graphics Toolkit", "Multiplayer"],
     "description": "As Senior Developer, System Architect, Team Lead, and Designer on Metasphere, I led the creation of a unique online world blending social interaction, gameplay, and user-generated content with NFT integration. Players could explore diverse environments, connect with friends, and showcase digital collectibles in personalized 3D galleries. My role combined deep technical architecture with creative vision to bring this ambitious concept to life and lay the foundation for future community-driven evolution.",
+    "projectUrl": "",
+    "projectUrlText": ""
+  },
+  {
+    "title": "Viglo Language - Openworld Sandbox (Viglo)",
+    "image": "img/Viglo_collage.jpg",
+    "video": null,
+    "primaryTags": ["Unity", "C#", "Multiplayer (SmartFoxServer)", "Procedural Textures", "Azure Cognitive Services"],
+    "secondaryTags": ["UI/UX", "3D Asset Pipeline", "Build Pipeline", "Asset Mgmt", "Design"],
+    "description": "Viglo, is the only digitally immersive multiplayer language program! The sole mission of the experience is to have players speaking foreign languages by taking the best-known method - language immersion - and providing it in a gamified 3D form. As Senior Developer, System Architect, Team Lead, and Designer on Viglo Language, I led the creation of a unique online multiplayer sandbox featuring multi-lingual social interaction. Players can explore dynamic environments in multiple languages and chat with friends. My role combined deep technical architecture with creative vision to create the first of it's kind foreign language reinforcement platform.",
     "projectUrl": "",
     "projectUrlText": ""
   }
